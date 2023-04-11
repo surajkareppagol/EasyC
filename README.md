@@ -1,57 +1,56 @@
 # easyC
 
-Write C with the macros, which are written to make the c syntax easier.
+This project EasyC includes different syntax defined for C Language
+using the C Macros.
 
+This file easyC.h need to be included in your project directory, since it's still in development.
+
+## Sections
+
+- Macros for main() function definition
+- Macros for working with Variables
+- Macros for working with Arrays
+- Macros for working with return keyword
+- Macros for working with printf()
+- Macros for working with scanf()
+- Macros for working with Functions
+- Macros for working with For Loops
+- Macros for working with While Loops
+
+Warning : This project is just for learning purpose don't use it in real world projects as it might produce a lot of bugs.
 for example,
 
-Instead of writing this,
+## Examples
 
-```c
-int main(){
-  int i = 0;
-  for(i = 0; i < 10; i += 1){
-    printf("%d\n", i *i);;
-  }
-  return 0;
-}
-```
+![Written with easyC](/images/pre-written.png)
 
-You can write this,
+After preprocessing,
 
-```c
-MAIN_START
-
-VAR_CREATE(int, i, 0)
-
-FOR_START(i, 0, <, 10, += 1)
-
-PRINT_VARIABLE("%d\n", i *i);
-
-FOR_END
-
-RETURN(0)
-
-MAIN_END
-```
+![After preprocessing](/images/processed.png)
 
 ## How to use it?
 
-Just include the `easyC.h` file into your source code(C file) and use the syntax defined in the easyC.h.
+Include the `easyC.h` file into your source code (C file) and use the syntax defined in the easyC.h.
 
 ```c
 #include "easyC.h"
 ```
 
-## How to compile the files?
+To compile and run, execute these commands,
 
 ```bash
-gcc -c your_file.c
-gcc your_file.o
-./a.out
+gcc file.c -o file
+./file
 ```
 
 or, use it in a single line
 
 ```bash
-gcc -c your_file.c && gcc your_file.o && ./a.out
+gcc file.c -o file && ./file
+```
+
+To check the final version use, it will generate a text file `preprocessed_file.txt`, which includes the preprocessed code.
+
+```bash
+gcc -E file.c >> preprocessed_file.txt
 ```
